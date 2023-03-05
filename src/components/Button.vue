@@ -21,6 +21,8 @@ const onClick = (e: MouseEvent) => {
 </template>
 
 <style scoped>
+@import url('../assets/css/neumorphism.css');
+
 .button-container {
     width: 100%;
     height: 100%;
@@ -31,17 +33,9 @@ const onClick = (e: MouseEvent) => {
     justify-content: flex-end;
 }
 
-.button {
-    --button-color: #e8e8e8;
-    --button-shadow-dark-color: #a2a2a2;
-    --button-shadow-light-color: #ffffff;
-
+@mixin neumorphism-flat-with-active button {
     width: 100%;
     height: 100%;
-    background-color: var(--button-color);
-    box-shadow: -5px -5px 10px var(--button-shadow-light-color), 5px 5px 10px var(--button-shadow-dark-color);
-    border: 8px solid transparent;
-    outline: none;
 
     &.rounded {
         border-radius: 50%;
@@ -53,20 +47,13 @@ const onClick = (e: MouseEvent) => {
         justify-content: center;
     }
 
-    &:active {
-        box-shadow: -5px -5px 10px var(--button-shadow-light-color),
-            5px 5px 10px var(--button-shadow-dark-color),
-            inset -5px -5px 10px var(--button-shadow-light-color),
-            inset 5px 5px 10px var(--button-shadow-dark-color);
-
-        &>.title {
-            color: #15e38a;
-        }
-    }
-
     &>.title {
         margin: 10px;
         color: #7a7a7a;
+    }
+
+    &:active>.title {
+        color: #15e38a;
     }
 }
 </style>

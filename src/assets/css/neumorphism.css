@@ -1,0 +1,36 @@
+@define-mixin neumorphism-flat $name,
+    $color: #e8e8e8,
+    $distance: 5px,
+    $blur: 10px,
+    $border-width: 8px,
+    $shadow-dark-color: #a2a2a2,
+    $shadow-light-color: #ffffff {
+        .$(name) {
+            background-color: $color;
+            box-shadow: -$distance -$distance $blur $shadow-light-color, $distance $distance $blur $shadow-dark-color;
+            border: $border-width solid transparent;
+            outline: none;
+            @mixin-content;
+        }
+}
+
+@define-mixin neumorphism-flat-with-active $name,
+    $color: #e8e8e8,
+    $distance: 5px,
+    $blur: 10px,
+    $border-width: 8px,
+    $shadow-dark-color: #a2a2a2,
+    $shadow-light-color: #ffffff {
+        .$(name) {
+            background-color: $color;
+            box-shadow: -$distance -$distance $blur $shadow-light-color, $distance $distance $blur $shadow-dark-color;
+            border: $border-width solid transparent;
+            outline: none;
+            @mixin-content;
+        }
+
+        .$(name):active {
+            box-shadow: -$distance -$distance $blur $shadow-light-color, $distance $distance $blur $shadow-dark-color, inset -$distance -$distance $blur $shadow-light-color, inset $distance $distance $blur $shadow-dark-color;
+        }
+}
+
